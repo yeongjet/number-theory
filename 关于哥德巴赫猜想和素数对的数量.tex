@@ -1,0 +1,353 @@
+\documentclass[UTF8,a4paper,zihao=-4]{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{fontsize}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{amssymb}
+\xeCJKsetup{CJKmath=true}
+%\usepackage{perpage}
+% \interfootnotelinepenalty=10000
+% \usepackage{bigfoot}
+\renewcommand{\thefootnote}{\ifcase\value{footnote}\or*)\or
+**)\or***)\or****)\or($\infty$)\fi}
+\renewcommand\underline{\bgroup\markoverwith
+   {%
+     \rule[-0.5ex]{2pt}{0.4pt}%
+   }%
+   \ULon}
+\newcommand\doubleunderline{\bgroup\markoverwith
+   {%
+     \rule[-0.5ex]{2pt}{0.4pt}%
+     \llap{{\rule[-0.8ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\tripleunderline{\bgroup\markoverwith
+   {%
+     \rule[-0.5ex]{2pt}{0.4pt}%
+     \llap{{\rule[-0.8ex]{2pt}{0.4pt}}}%
+     \llap{{\rule[-1.1ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+%\MakePerPage{footnote}
+% \def\doubleunderline#1{\underline{\underline{#1}}}
+% \setmainfont{Source Han Sans HW}
+% \setCJKmainfont{Songti SC}
+\title{ÜBER DAS GOLDBACHSCHE GESETZ UND DIE ANZAHL DER PRIMZAHLPAARE\\关于哥德巴赫猜想和素数对的数量}
+\begin{document}
+\author{VIGGO BRUN.}
+\date{}
+\maketitle
+
+\begin{center}§1\end{center}
+
+\indent Eine sehr interessante Aufgabe der Primzahltheorie ist die folgende: Gibt es, trotz der abnehmenden Häufigkeit der Primzahlen, doch unendlich viele Paare von Primzahlen mit Differenz $2$, wie $11-13$, $17-19$ und so weiter?\\
+\indent 素数理论中一个非常有趣的问题是: 尽管素数的频率在减少, 但是否仍存在无限多个差为$2$的素数对, 例如$11-13$、$17-19$等等?\\\\
+\indent Es ist noch niemand gelungen, etwas darüber zu beweisen, und so viel ich weiss, hat auch niemand versucht eine Näherungsformel über die Anzahl der Primzahlpaare unter x aufzustellen.\\
+\indent 还没有人成功地证明过这个问题, 据我所知也没有人尝试过建立一个小于$x$的素数对数量的近似公式。\\\\
+\indent Ich bin darauf aufmerksam geworden, dass die Methode, die Eratosthenes zur Auffindung der Primzahlen benutzte, auch zur Auffindung der Primzahlpaare fähig ist.\\
+\indent 我注意到, Eratosthenes用于找到质数的方法也可以用来找到质数对。\\\\
+\indent Durch Überlegungen über diese Methode bin ich dazu geführt, eine Näherungsformel über die Anzahl ($p(x)$) der Primzahlpaare unter $x$ aufzustellen , nämlich\\
+\indent 通过对这种方法的思考, 我得出了一个小于x的素数对数量($p(x)$)的近似公式，即
+\begin{align}\label{formula_1}
+p(x)=k\frac{x}{log^2x}\tag{\RN{1}}
+\end{align}
+wo k eine Konstante bedeutet.\\
+这里的k代表某个常数。\\\\
+\indent Ich bin auch darauf aufmerksam geworden, dass die Methode Eratosthenes's fähig ist die Primzahlen auszusieben , deren Summe eine gegebene Zahl ist. Goldbach hat folgende Vermutung ausgesprochen : « Jede gerade Zahl lässt sich als Summe. zweier Primzahlen schreiben. » Euler bemerkt im Jahre 1742 dazu: « Ich halte dies für ein ganz gewisses theorema, ungeachtet ich dasselbe nicht demonstrieren kann. »\\
+\indent 我也注意到,埃拉托斯特尼筛法能够筛选出其和为给定数的质数。哥德巴赫提出了以下猜想: "每个偶数都可以写成两个质数的和。”欧拉在1742年对此发表评论: "尽管我无法证明它, 但我认为这是一个非常确定的定理。"\\\\
+\indent Durch ähnliche Überlegungen wie die früher genannten bin ich dazu geführt folgende Näherungsformel aufzustellen:\\
+\indent 通过类似于之前提到的思考, 我得出以下近似公式:\\\\
+\indent Eine gerade Zahl $x$ lässt sich in $G(x)$ verschiedenen Weisen als Summe von zwei Primzahlen schreiben, wo\\
+\indent 假设$x$是一个偶数, 共有$G(x)$种不同的方式表示为两个质数的和，那么
+\begin{align}\label{formula_2}
+G(x)=k\cdot\frac{x}{log^2x}\cdot\frac{p-1}{p-2}\cdot\frac{q-1}{q-2}\cdot....\cdot\frac{r-1}{r-2}\tag{\RN{2}}
+\end{align}\\
+\indent Hier bedeuten $p, q,...r$ die ungeraden Primfaktoren in $x$, die kleiner als $\sqrt{x}$ sind, während $k$ dieselbe Konstante wie in Formel $\rm\ref{formula_1}$ bedeutet. Wir haben dann zwischen den Decompositionen $p_1+p_2$ und $p_2+p_1$ gesondert.\\
+\indent 这里的$p, q,...r$表示x中小于x且为奇数的质因子, 而k与公式I中的常量相同。然后我们将$p_1+p_2$和$p_2+p_1$进行了分别处理。\\\\
+\indent Stäckel hat im Jahre 1896\footnote[1]{Nachrichten von der K. Gesellschaft der Wissenschaften zu Göttingen. Math.phys.Klasse 1896.\\\indent 来自哥廷根科学院的消息。数学物理部1896年。} eine ähnliche Näherungsformel aufgestellt. Seine Formel lässt sich folgendermassen schreiben:\\
+\indent Stäckel在1896年\footnotemark[1]提出了一个类似的近似公式。他的公式可以写成如下形式:
+$$
+G(x)=2\frac{x}{log^2x}\cdot\frac{p}{p-1}\cdot\frac{q}{q-1}\cdot....\cdot\frac{r}{r-1}
+$$
+\indent Stäckel hat sich einer Wahrscheinlichkeitsbetrachtung und der Entdeckung benutzt, dass die Schwankungen von G(x) mit den Schwankungen von\\
+\indent Stäckel使用了概率分析, 发现$G(x)$的变化与
+$$
+\varphi(x)=x\cdot\frac{p-1}{p}\cdot\frac{q-1}{q}\cdot...\cdot\frac{r-1}{r}
+$$
+in Zusammenhang stehen.\\
+有关。\\
+
+\indent Landau hat im Jahre 1900\footnote[2]{Ibidem 1900\\\indent 同上, 1990年} die Stäckelsche Formel näher behandelt und hat vorgeschlagen, die Formel mit der Konstante 0,772 zu multiplizieren. Wie man sieht, ist die Formel II wesentlich verschieden von der Stäckel-Landauschen.\\
+\indent Landau在1900年\footnotemark[2]对Stäckel公式进行了进一步研究, 并建议将该公式乘以常数0.772。正如我们所看到的, \ref{formula_2}式与Stäckel-Landauschen公式明显不同。\\\\
+\indent Die Stäckelsche Wahrscheinlichkeitsbetrachtung ist auch nach meiner Meinung nicht befriedigend, indem er sich Elemente, deren Stellung sehr abhängig von einander ist, in irgend eine Reihenfolge » denkt (Seite 295).\\
+\indent Stäckel的概率观点在我看来也不令人满意,因为他将彼此非常依赖的元素“以任何顺序”进行思考(第295页)。\\\\
+\indent Es ist mir nicht gelungen, die Näherungsformeln zu beweisen. Wenn ich trotzdem die Überlegungen, die dazu geführt haben, veröffentliche, ist es in der Hoffnung, dass sie den richtigen Weg zum Beweise der zwei Theoremen zeigen werden: Es gibt unendlich viele Primzahlpaare, und: Jede gerade Zahl kann als Summe von zwei Primzahlen dargestellt werden.\\
+\indent 我无法证明这些近似公式。即使如此，如果我还是发表了导致这一结果的思考过程，那是希望它们能指引出证明以下两个定理的正确道路: 存在无限多对素数; 每个偶数都可以表示为两个素数之和。
+\vspace{2em}
+\begin{center}§2\end{center}
+\indent\indent Die Siebmethode von Eratosthenes ist wohlbekannt. Wir werden sie in folgender Weise wiedergeben: Man wünscht die Primzahlen zwischen $\sqrt{x}$ und $x$ auszusieben. Wir wählen zum Beispiel $x=30$, wonach $\sqrt{x}=5$,... Wir schreiben die Zahlenreihe von $0$ bis $30$ auf:\\
+\indent 埃拉托斯特尼筛法是大家熟知的。我们用以下方式介绍它: 我们希望筛选出$\sqrt{x}$和$x$之间的质数。例如, 我们选择$x=30$, 那么$\sqrt{x}=5...$ 我们写下从$0$到$30$的数字序列:
+\begin{align*}
+&\tripleunderline0\quad1\quad\underline2\quad\underline3\quad\underline4\quad\underline5\quad\doubleunderline6\quad7\quad\underline8\quad\underline9\quad\doubleunderline{10}\quad11\quad\doubleunderline{12}\quad13\quad\underline{14}\quad\doubleunderline{15}\quad\underline{16}\quad17\quad\doubleunderline{18}\\
+&19\quad\doubleunderline{20}\quad\underline{21}\quad\underline{22}\quad23\quad\doubleunderline{24}\quad\underline{25}\quad\underline{26}\quad\underline{27}\quad\underline{28}\quad29\quad\tripleunderline{30}
+\end{align*}
+\indent Erstens streichen wir die durch $2$ teilbaren Zahlen,\footnote[1]{Anstatt die Zahlen auszustreichen, haben wir sie hier nur unterstrichen.\\\indent 不是划掉数字，而是在数字下面加下划线。} $0,2,4,6...$, also jede zweite Zahl, dann die durch $3$ teilbaren Zahlen $0,3,6,9...$, oder jede dritte Zahl, indem wir auch. früher gestrichene mit einem neuen Strich versehen. Dann streicht man weiter jede fünfte Zahl, $0,5,10...$ Die zurückstehenden nicht gestrichenen Zahlen sind $1$ und die Primzahlen zwischen $\sqrt{30}$ und $30$. Wären sie zusammengesetzt, müssten sie ja durch eine Primzahl kleiner als $30$ teilbar sein, also durch $2,3$ oder $5$. Ganz allgemein genügt es mit den Primzahlen kleiner als $\sqrt{x}$ Streichungen durchzuführen.\\
+\indent 首先我们划掉可被$2$整除的数字, 即$0,2,4,6...$即从$0$开始的每第二位数字,然后划掉可被$3$整除的数字$0,3,6,9...$即每第三位的数字, 若该数字已经划掉了, 那么就增加一条下划线。接着继续划掉每第五位的数字$0,5,10...$剩下未被划掉的数是$1$以及$\sqrt{30}$到$30$之间的质数。该序列中的合数, 必须能够被小于$\sqrt{30}$的质数整除, 即$2,3或5$。总体而言,只需进行小于$\sqrt{x}$的质数个数次删除操作即可。\\\\
+\indent Wir werden jetzt eine ähnliche Methode anwenden um die Primzahlpaare auszusieben. Wir richten die Aufmerksamkeit auf die Zahl $z$, die zwischen den zwei Primzahlen des Paares belegen ist. Wir suchen also die Zahlen $z$, die folgende Eigenschaft haben:
+\begin{align*}
+    z+1=Primzahl\\
+    z-1=Primzahl
+    \end{align*}
+\indent 我们现在使用类似的方法来筛选素数对。我们将注意力集中在位于素数对之间的数字$z$上。因此, 我们要寻找具有以下特性的数字$z$:
+\begin{align*}
+    z+1=质数\\
+    z-1=质数
+\end{align*}
+\indent Die Zahlen $z$, die die erste Eigenschaft besitzen, kann man leicht aussieben, indem man nur alle Streichungen einen Schritt nach links verschiebt. Statt bei 0 fangen wir also bei $-1$ an. In gleicher Weise sieben wir die Zahlen aus, die die zweite Eigenschaft besitzen , indem wir $+1$ als Ausgangspunkt der Streichungen benützen. Als Beispiel wählen wir $x=32$\\
+\indent 为了将$z+1$是质数的数筛选出来, 将所有删除操作向左移动一位, 因此我们从$-1$开始而不是从$0$开始。以相同的方式, 将$1$作为起点, 我们筛选出$z-1$是质数的数字。作为示例, 我们选择$x=32$。
+\begin{align*}
+&\tripleunderline{-1}\quad0\quad\tripleunderline1\quad\underline2\quad\underline3\quad\doubleunderline4\quad\doubleunderline5\quad\underline6\quad\doubleunderline7\quad\underline8\quad\doubleunderline9\quad\underline{10}\quad\tripleunderline{11}\quad12\quad\doubleunderline{13}\quad\doubleunderline{14}\quad\underline{15}\quad\doubleunderline{16}\quad\doubleunderline{17}\quad18\\
+&\tripleunderline{19}\quad\underline{20}\quad\doubleunderline{21}\quad\underline{22}\quad\doubleunderline{23}\quad\underline{24}\quad\doubleunderline{25}\quad\doubleunderline{26}\quad\underline{27}\quad\underline{28}\quad\tripleunderline{29}\quad30\quad\tripleunderline{31}\quad\underline{32}
+\end{align*}
+Die zurückstehenden Zahlen sind $12,18$ und $30$. Die entsprechenden Primzahlpaare sind $11-13$, $17-19$ und $29-31$.\\
+剩下的数是$12,18$和$30$。相应的质数对是$11-13$, $17-19$和$29-31$。\\\\
+\indent Eine Aussiebung der Primzahlpaare zwischen $\sqrt{x}$ und $x$ kann man also erreichen durch eine zweimalige Anwendung der Methode Eratosthenes's, wenn man die Ausgangspunkte $-1$ und $+1$ statt $0$ wählt, und indem man jede zweite, jede dritte, jede fünfte bis jede pte Zahl unterstreicht, wenn $p$ die grösste Primzahl unter $x$ bedeutet.\\
+\indent 因此, 通过应用两次埃拉托斯特尼筛法, 可以在$\sqrt{x}$和$x$之间找到素数对。选择起始点为$-1$和$1$而不是0, 并且将每隔第二个、第三个、第五个直至第$p$个数字划线, 其中$p$表示小于等于$x$的最大素数。\\\\
+\indent Wir werden auch zeigen wie eine gerade Zahl $x$ in ähnlicher Weise in eine Summe von zwei Primzahlen dekomponiert werden kann. Wählen wir zum Beispiel $x=26$. Wir schreiben die Zahlen 0 bis 26 auf und unter ihnen in umgekehrter Reihenfolge dieselben Zahlen . Die Summe einer Zahl der ersten Reihe und der entsprechenden Zahl der zweiten Reihe ist dann immer $26$. Jetzt wenden wir Eratosthenes's Methode auf beide Reihen an. Die zurückstehenden Zahlenpaare in welchen die beiden direkt unter einander stehenden Zahlen nicht gestrichen sind, sind dann die gesuchten Primzahlen zwischen $\sqrt{x}$ und $x-\sqrt{x}$.\\
+\indent 我们还将展示如何将一个偶数$x$分解为两个质数的和。例如，我们选择$x=26$。我们写下从$0$到$26$的数字, 并在它们下方以相反顺序写入相同的数字。第一行中的一个数字与第二行中对应的数字之和始终为$26$。现在, 我们对这两行分别应用埃拉托斯特尼筛法。那些直接位于彼此下方且未被划去的数字对就是所寻找的介于$\sqrt{x}$和$x-\sqrt{x}$之间的质数。
+\begin{align*}
+&\hspace{0.2em}\tripleunderline0\hspace{1.5em}1\hspace{1.5em}\underline2\hspace{1.5em}\underline3\hspace{1.5em}\underline4\hspace{1.5em}\underline5\hspace{1.5em}\doubleunderline6\hspace{1.5em}7\hspace{1.5em}\underline8\hspace{1.5em}\underline9\hspace{1.3em}\doubleunderline{10}\hspace{1em}11\hspace{1em}\doubleunderline{12}\hspace{1em}13\hspace{1em}\underline{14}\hspace{1em}\doubleunderline{15}\hspace{1em}\underline{16}\hspace{1em}17\hspace{1em}\doubleunderline{18}\\
+&\underline{26}\quad\underline{25}\quad\doubleunderline{24}\quad23\quad\underline{22}\quad\underline{21}\quad\doubleunderline{20}\quad19\quad\doubleunderline{18}\quad17\quad\underline{16}\quad\doubleunderline{15}\quad\underline{14}\quad13\quad\doubleunderline{12}\quad11\quad\doubleunderline{10}\hspace{1.3em}\underline9\hspace{1.5em}\underline8\\\\
+&19\quad\doubleunderline{20}\quad\underline{21}\quad\underline{22}\quad23\quad\doubleunderline{24}\quad\underline{25}\quad\underline{26}\\
+&\hspace{0.2em}7\hspace{1.5em}\doubleunderline6\hspace{1.5em}\underline5\hspace{1.5em}\underline4\hspace{1.5em}\underline3\hspace{1.5em}\underline2\hspace{1.5em}1\hspace{1.5em}\tripleunderline0
+\end{align*}
+\begin{align*}
+    &\hspace{0.2em}\tripleunderline0\hspace{1.5em}1\hspace{1.5em}\underline2\hspace{1.5em}\underline3\hspace{1.5em}\underline4\hspace{1.5em}5\hspace{1.5em}\doubleunderline6\hspace{1.5em}7\hspace{1.5em}\underline8\hspace{1.5em}\underline9\hspace{1.3em}\doubleunderline{10}\hspace{1em}11\hspace{1em}\doubleunderline{12}\hspace{1em}13\hspace{1em}\underline{14}\hspace{1em}\doubleunderline{15}\hspace{1em}\doubleunderline{15}\hspace{1em}\doubleunderline{16}\hspace{1em}\doubleunderline{17}\hspace{1em}\doubleunderline{18}\hspace{1em}\\
+    &\doubleunderline{19}\hspace{1em}\doubleunderline{20}\hspace{1em}\doubleunderline{21}\hspace{1em}\doubleunderline{22}\hspace{1em}\doubleunderline{23}\hspace{1em}\doubleunderline{24}\hspace{1em}\doubleunderline{25}\hspace{1em}\doubleunderline{26}\hspace{1em}\doubleunderline{27}\hspace{1em}\doubleunderline{28}\hspace{1em}\doubleunderline{29}\hspace{1em}\doubleunderline{30}\\
+    &\doubleunderline{15}\quad\underline{14}\quad13\quad\doubleunderline{12}\quad11\quad\doubleunderline{10}\hspace{1.3em}\underline9\hspace{1.5em}\underline8\hspace{1.5em}\underline7\hspace{1.5em}\underline6\hspace{1.5em}\underline5\hspace{1.5em}\underline4\hspace{1.5em}\underline3\hspace{1.5em}\underline2\hspace{1.5em}\underline1\hspace{1.5em}\underline0
+    \end{align*}
+\indent Die nicht gestrichenen Zahlenpaare sind $7$, $19$ und $13$, $13$ und $19$, $7$, deren Summe 26 ist. Selbstverständlich ist es unnötig die zweite Reihe von Zahlen aufzuschreiben. Man braucht ja nur die Striche dieser Reihe nach oben verschieben. Wir können mit anderen Worten die zweite Serie von Streichungen bei 26 anfangen und nach links durchführen.\\
+\indent 未划掉的数字对是$7-19$, $13-13$以及$19-7$, 它们的总和为$26$。显然, 写下第二行数字是不必要的。我们只需要将该行中的划线向上移动即可。换句话说, 在26处开始并向左执行第二次的删除操作。\\\\
+\indent Die Zerlegung einer geraden Zahl $x$ in die Summe von zwei Primzahlen zwischen $\sqrt{x}$ und $x-\sqrt{x}$ lässt sich ausführen durch eine zweimalige Anwendung der Methode Eratosthenes's, wenn man die Ausgangspunkte $0$ und $x$ wählt, und indem man jede zweite, jede dritte, jede fünfte bis jede $p$ te Zahl streicht, wenn $p$ die grösste Primzahl unter $\sqrt{x}$ bedeutet.\\
+\indent 将偶数$x$分解为两个介于$\sqrt{x}$和$x-\sqrt{x}$之间的质数之和, 可以通过应用两次埃拉托斯特尼筛法来完成, 即选择起始点$0$和$x$, 并在每一步中删除每第二个、每第三个、每第五个直到每第$p$个, 其中$p$是小于$\sqrt{x}$的最大质数。\\\\
+\indent Da $x$ als gerade vorausgesetzt ist, sieht man, dass die zweimalige Streichung von jeder zweiten nur einer einmaligen Streichung entspricht. Man sieht auch, dass wenn $x$ durch $3$ teilbar ist, dann wird die zweimalige Streichung von jeder dritten Zahl nur einer einmaligen entsprechen. Es ist dann zu erwarten, dass die Anzahl der Zerlegungen relativ gross wird jedesmal $x$ durch $3$ teilbar ist. Dass dies auch der Fall ist, sieht man sogleich aus den Tabellen, die über die Goldbachschen Zerlegungen ausgearbeitet sind.\\
+\indent 当$x$是偶数, 我们可以看出每隔第二个数字的两次删减等同于一次删减。我们还可以看到，当$x$能被3整除, 则每隔第三个数字的两次删减只会等同于一次删减。因此, 当$x$能被3整除时, 预计分解数量将相对较大。从已经制定好的关于哥德巴赫分解的表格中立即可以看出这一点。\\\\
+\vspace{2em}
+\begin{center}§3\end{center}
+\indent\indent Die Methode Eratosthenes's ist auch dazu fähig die Primzahlen einer arithmetischen Reihe auszusieben . In einer arithmetischen Reihe\\
+\indent 埃拉托斯特尼筛法也能用来筛选算术序列中的质数。在一个算术序列中
+$$
+a\quad a + p\quad a + 2p\quad a + 3p\ ....
+$$
+wo $p$ eine Primzahl bedeutet, ist jede zweite Zahl durch $2$ teilbar, wenn nicht eben $p = 2$ ist, und jede dritte Zahl durch $3$ teilbar, wenn nicht eben $p = 3$ ist u. s. w.\\
+其中$p$是一个质数，除非$p = 2$否则每隔两个数都能被2整除, 除非$p=3$否则每隔三个数都能被$3$整除, 以此类推。\\\\
+\indent Wünschen wir z. B. die Primzahlen der Reihe\\
+\indent 如果我们想从以下序列中把质数筛选出来:
+$$3\quad 8\quad 13\quad 18\quad 23\quad 28\quad 33\quad 38\quad 43\quad 48$$
+auszusieben, müssen wir jede zweite und jede dritte Zahl streichen, mit den zwei verschiedenen Ausgangspunkten 8 und 3. Dies ist von besonderem Interesse bei unseren Siebmethoden.\\
+我们需要删除每隔两个和每隔三个数字, 使用两个不同的起始点8和3。这在我们的筛法中具有特殊意义。\\\\
+\indent Denken wir uns, dass wir erstens jede zweite und jede dritte Zahl der natürlichen Zahlenreihe mit willkürlichen Ausgangspunkten gestrichen haben, und dass wir dann jede fünfte Zahl streichen. Wie viele von diesen letzten sind dann früher gestrichen? Die Antwort wird: jede zweite und jede dritte, doch mit unbestimmten Ausgangspunkten. Dasselbe gilt bei doppelten Streichungen.\\
+\indent 想象一下，我们首先从自然数序列中任意选择起点，删除每隔两个和每隔三个数字，然后再删除每隔五个数字。那么这些最后被删除的数字中有多少是之前已经被删除过的？答案是：每隔两个和每隔三个数字都会被删除，但起点位置不确定。同样的情况也适用于双重删除。\\\\
+\indent Es wird daher dienlich sein , unserm Problem folgende allgemeine Form zu geben:\\
+\indent 因此，给出以下一般形式将是有意义的:\\\\
+\indent Folgende arithmetische Reihen seien gegeben:\\
+\indent 给定以下算术序列:
+\begin{align*}
+&\triangle\hspace{2em}\triangle+D\hspace{2em}\triangle+2D\hspace{2em}\triangle+3D\ ....\hspace{4em}(\rm A)\\
+&a_1\hspace{2em}a_1+2\hspace{2.4em}a_1+4\hspace{2.8em}a_1+6\ ....\\
+&a_2\hspace{2em}a_2+3\hspace{2.4em}a_2+6\hspace{2.8em}a_2+9\ ....\\
+&b_2\hspace{2.2em}b_2+3\hspace{2.5em}b_2+6\hspace{2.9em}b_2+9\ ....\\
+&a_3\hspace{2em}a_3+5\hspace{2.4em}a_3+10\hspace{2.3em}a_3+15\ ....\hspace{4em}(\rm B)\\
+&b_3\hspace{2.2em}b_3+5\hspace{2.5em}b_3+10\hspace{2.4em}b_3+15\ ....\\
+&-\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad\\
+&-\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad\\
+&-\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad -\quad\\
+&a_n\hspace{1.9em}a_n+p_n\hspace{1.7em}a_n+2p_n\hspace{1.7em}a_n+3p_n\ ....\\
+&b_n\hspace{2.1em}b_n+p_n\hspace{1.8em}b_n+2p_n\hspace{1.8em}b_n+3p_n\ ....\\
+\end{align*}
+\indent Sämtliche Reihen erstrecken sich von $0$ bis $x$, das heisst, das erste Glied ist kleinstmöglich positiv und das letzte Glied ist grösstmöglich kleiner als $x$z oder gleich $x$. Wir setzen noch nicht voraus, dass $p_n$ die grösste Primzahl unter $\sqrt{x}$ bedeutet. Wir denken uns weiter, dass $a_n b_n$ für alle $n$, was einer zweimaligen Streichung entspricht. $D$ ist eine ganze Zahl, die relativ prim zu $2,3,5,...p_n,p_n+1$ ist.\\
+\indent 所有序列从$0$到$x$结束, 也就是说, 第一项是最小的正数, 而最后一项要么比$x$大得多，要么等于$x$。我们还没有假设$p_n$是小于$x$的最大质数。我们进一步假设对于所有$n$来说$a_n\lessgtr b_n$, 这相当于两次删减。D是一个与$2,3,5,...p_n,p_n+1$互素的整数。\\\\
+\indent Unser Problem wird das folgende:\\
+\indent 我们的问题将是以下内容:\\\\
+\indent Wie viele Glieder enthält die erste Reihe A, die keinem Gliede der untenstehenden Reihen gleich sind?\\
+\indent 第一行A中有多少个元素, 它们与下面的行中的任何一个元素都不相同?\\\\
+\indent Wir werden diese Anzahl mit $P_{p_n}(x)$ bezeichnen und werden beweisen, dass\\
+\indent 我们将用$P_{p_n}(x)$来表示这个数量，并且我们将证明
+\begin{align}
+P_{p_n}(x)=\frac{x}{D}(1-\frac{1}{2})(1-\frac{2}{3})(1-\frac{2}{5})...(1-\frac{2}{p_n})+\Theta\cdot3^n\tag{\RN{3}}
+\end{align}
+wo\\
+其中
+$$-1<\Theta<1$$
+\indent Die Formel enthält ein unbestimmtes Restglied. Die Aufgabe ist ja auch teilweise unbestimmt, indem die Ausgangspunkte der Streichungen, das heisst die Grössen $a$ und $b$, willkürlich wählbar sind.\\
+\indent 这个公式包含一个未确定的余项。问题本身也是部分未确定的，因为划去的起点即$a$和$b$是任意选择的。\\\\
+\indent Wir setzen voraus, dass:\\
+\indent 我们假设:
+$$
+_{p_n}(x)=K_n\frac{x}{D}+\Theta R_n
+$$
+und wir suchen $P_{p_{n+1}}(x)$ zu bestimmen.\\
+我们正在寻找确定 $P_{p_{n+1}}(x)$。\\\\
+\indent Wir fügen dann folgende neue Reihen zu den vorigen:\\
+\indent 我们接下来将以下新序列添加到之前的序列中:
+\begin{align*}
+    &a_{n+1}\hspace{2em}a_{n+1}+p_{n+1}\hspace{2em}a_{n+1}+2p_{n+1}\hspace{2em}a_{n+1}+3p_{n+1}\hspace{4em}(C)\\
+    &b_{n+1}\hspace{2.2em}b_{n+1}+p_{n+1}\hspace{2.1em}b_{n+1}+2p_{n+1}\hspace{2.1em}b_{n+1}+3p_{n+1}\hspace{4em}(D)
+\end{align*}
+die sich auch zwischen 0 und x erstrecken . Wir haben dann zu untersuchen, wie viele von diesen Gliedern folgende zwei Bedingungen erfüllen : identisch mit einem Gliede der Reihe A, aber verschieden von sämtlichen Gliedern der Reihen B zu sein.\\
+这些也可以在0和x之间延伸。然后我们需要研究有多少个这样的项满足以下两个条件: 与序列A中的一项相同, 但与序列B中的所有项都不同。\\\\
+\indent Die identischen Glieder der Reihen A und C und der Reihen A und D sind die Glieder folgender zwei arithmetischen Reihen:\\
+\indent 序列A和C以及序列A和D的相同项是以下两个等差数列的项:
+\begin{align*}
+&a\hspace{2em}a+p_{n+1}D\hspace{2em}a+2p_{n+1}D\hspace{2em}a+3p_{n+1}D\ ....\\
+&b\hspace{2.2em}b+p_{n+1}D\hspace{2.1em}b+2p_{n+1}D\hspace{2.1em}b+3p_{n+1}D\ ....
+\end{align*}
+die sich auch zwischen 0 und x erstrecken und wo a b. Die Anzahl von Gliedern in diesen, die von sämtlichen Gliedern der Reihen B verschieden sind, wird dann gleich $2\left(K_n\frac{x}{D_{p_n}}+\Theta R_n\right)$ wodurch:\\
+这些也在0和x之间延伸,并且$a_n\gtrless b_n$。其中与序列B的所有元素都不同的元素数量将等于$2\left(K_n\frac{x}{D_{p_n}}+\Theta R_n\right)$，从而:
+$$
+P_{p_n}(x)=K_n\frac{x}{D}+\Theta R_n-2\left(K_n\frac{x}{D_{p_{n+1}}}+\Theta R_n\right)
+$$
+oder\\
+或者
+$$
+P_{p_n}(x)=K_n(1-\frac{2}{p_{n+1}})\frac{x}{D}+\Theta 3R_n
+$$
+Da nun\\
+由
+$$
+P_2(x)=\frac{1}{2}\frac{x}{D}+\Theta\cdot3
+$$
+wird\\
+可以推出
+$$
+P_3(x)=\frac{1}{2}\left(1-\frac{2}{3}\right)\frac{x}{D}+\Theta\cdot3^2
+$$
+und schliesslich\\
+最后得到
+$$
+P_{p_n}(x)=\left(1-\frac{1}{2}\right)\left(1-\frac{2}{3}\right)\left(1-\frac{2}{5}\right)...\left(1-\frac{2}{p_n}\right)\frac{x}{D}+\Theta\cdot3^n
+$$
+\indent Wenn $D=1$ ist, wenn also die Reihe A aus den Zahlen $1 ,2,3,... x$ besteht, erhalten wir die Formel:\\
+\indent 当$D=1$时, 也就是说序列A由数字$1,2,3,...x$组成，我们得到以下公式：
+\begin{align}
+P_{p_n}(x)=\left(1-\frac{1}{2}\right)\left(1-\frac{2}{3}\right)\left(1-\frac{2}{5}\right)...\left(1-\frac{2}{p_n}\right)x+\Theta\cdot3^n\tag{\RN{4}}
+\end{align}
+\indent Ist die Anzahl der gegebenen arithmetischen Reihen von $x$ unabhängig, ist also das Problem einfach. Dann gilt die asymptotisch richtige Formel\\
+\indent 如果给定的算术序列数量与$x$无关，那问题很简单。渐近公式为
+$$
+P_{p_n}(x)=x\left(1-\frac{1}{2}\right)\left(1-\frac{2}{3}\right)\left(1-\frac{2}{5}\right)...\left(1-\frac{2}{p_n}\right)
+$$
+Hat man mit einer einfachen Streichung zu tun, wie bei der Methode Eratosthenes's, erhält man selbstverständlich die Näherungsformel\\
+如果我们使用像埃拉托斯特尼斯方法那样的简单删减，自然会得到近似公式。
+$$
+\pi_{p_n}(x)=x\left(1-\frac{1}{2}\right)\left(1-\frac{1}{3}\right)...\left(1-\frac{1}{p_n}\right)
+$$
+die auch asymptotisch richtig ist.\\
+这也是渐近正确的。\\\\
+\indent Hier bedeutet $\pi_{p_n}(x)$ die Anzahl von zurückstehenden Gliedern, wenn unter den Zahlen von $0$ bis $x$ jede zweite, jede dritte bis jede pute mit willkürlichen Ausgangspunkten gestrichen werden.
+\indent 这里的$\pi_{p_n}(x)$表示当在从$0$到$x$的数字中，每隔第二个、第三个直到每一个纯粹的数都被删除时，剩下的元素数量。\\\\
+\indent Hieraus folgt speziell:\\
+\indent 由此可得出特别的结论:\\\\
+\indent Die Anzahl $B_{p_n}(x)$ von Zahlenpaaren unter $x$ mit Differenz 2, in welchen beide Zahlen mit $2, 3, 5,...\ p_n$ unteilbar sind, lässt sich durch die asymptotisch richtige Formel darstellen:\\
+\indent 在$x$以下, 具有差为2的数对的数量$B_{p_n}(x)$, 其中两个数字都不能被$2,3,5...\ p_n$整除，可以用渐近正确的公式表示:
+$$
+B_{p_n}(x)=x\left(1-\frac{1}{2}\right)\left(1-\frac{2}{3}\right)\left(1-\frac{2}{5}\right)...\left(1-\frac{2}{p_n}\right)
+$$
+\indent Man sieht auch leicht folgenden Satz ein:\\
+\indent 人们也很容易理解以下句子的意思:\\\\
+\indent Eine gerade Zahl $x$ lässt sich auf $G_{p_n}(x)$ verschiedene Weisen als die Summe von zwei Zahlen schreiben, die beide durch die Primzahlen $2,3,5,...\ p_n$ unteilbar sind,wo $G_{p_n}(x)$ durch die asymptotisch richtige Formel dargestellt wird:\\
+\indent 一个偶数$x$可以用$G_{p_n}(x)$不同的方式表示为两个数字的和，这两个数字都不能被质数$2,3,5,...\ p_n$整除，其中$G_{p_n}(x)$由渐近正确的公式表示:
+$$
+G_{p_n}(x)=x\bigg(1-\frac{1}{2}\bigg)\bigg(1-\frac{2}{3}\bigg)\bigg(1-\frac{2}{5}\bigg)...\bigg(1-\frac{2}{p_n}\bigg)\frac{\bigg(1-\cfrac{1}{p}\bigg)\bigg(1-\cfrac{1}{q}\bigg)...\bigg(1-\cfrac{1}{r}\bigg)}{\bigg(1-\cfrac{2}{p}\bigg)\bigg(1-\cfrac{2}{q}\bigg)...\bigg(1-\cfrac{2}{r}\bigg)}
+$$
+\indent Hier bedeuten $p,q,...\ r$ die ungeraden Primzahlen, die in
+x aufgehen und die nicht grösser als $p_n$ sind.\\
+\indent 这里的$p,q,...\ r$表示能整除$x$且不大于$p_n$的奇素数。\\\\
+\indent Schon hieraus erhellt die Unwahrscheinlichkeit der Stäckelschen Näherungsformel.\\
+\indent 从这里可以看出Stäckel近似公式的不太可能性。
+\vspace{2em}
+\begin{center}§4\end{center}
+\indent\indent Weit schwieriger wird die Aufgabe, wenn $p_n$ mit $x$ wächst, wie bei unseren Problemen, wo $p_n$ die grösste Primzahl unter $\sqrt{x}$ sein soll.\\
+\indent 当$p_n$随着$x$的增长而增加时，任务变得更加困难，就像我们的问题一样，其中$p_n$应该是$\sqrt{x}$下最大的质数。\\\\
+\indent Dann wird die Formel $\rm \RN{3}$ ganz unbrauchbar, indem das unbestimmte Restglied sehr bald zu grosse Dimensionen erhält.\\
+\indent 然后，公式$\rm \RN{3}$变得完全无用，因为不确定的余项很快就会变得非常大。\\\\
+\indent Wir denken uns, dass wir ${P_{p_n}(x)}$ folgende Form gegeben haben\\
+\indent 我们认为我们给出了${P_{p_n}(x)}$的以下形式
+$$
+P_{p_n}(x)=K_nx+\Theta R_n
+$$
+wo\\
+其中\\
+$$
+-1<\Theta<1
+$$
+\indent Die Unbestimmtheit der Formel entspricht der Unbestimmtheit der Aufgabe. Die Ausgangspunkte der Streichungen sind ja willkürlich wählbar gedacht.\\
+\indent 公式的不确定性与任务的不确定性相对应。删除操作的起点是任意选择的。\\\\
+\indent Wir werden jetztdie unbewiesene Voraussetzung machen, dass
+das letzte Glied $\Theta R_n$, wenn $x$ wächst, von immer kleinerer Bedeutung wird, so dass man berechtigt wird dies Glied ausser Betrachtung zu lassen und $P_{p_n}(x)$ allein als Funktion von $x$ zu betrachten.\\
+\indent 我们现在做出未经证明的假设，即当$x$增长时，最后一项$\Theta R_n$变得越来越不重要，因此我们有权将该项忽略，并仅将$P_{p_n}(x)$视为关于$x$的函数。\\\\
+\indent Die Voraussetzung braucht natürlich nicht richtig zu sein.Es lässt sich sehr wohl denken,dass $P_{p_n}(x)$ auch mit wachsendem $x$ immer merkbare Schwankungen zulässt, wenn man die Ausgangspunkte der Unterstreichungen variiert. In dem Falle wird es gewiss sehr schwierig sein, eine asymptotisch richtige Formel für die Anzahl der Goldbachschen Zerlegungen einer Zahl aufzustellen, indem der zweite Ausgangspunkt der Streichungen immer variiert. Wir werden nach unserer Voraussetzung $P_{p_n}(x)$ als Funktion allein von $x$ betrachten, und einige Überlegungen über diese Funktion anstellen.\\
+\indent 前提条件不一定是正确的。可以想象，当我们改变划线的起始点时，$P_{p_n}(x)$ 在 $x$ 增大时也会出现明显的波动。在这种情况下，要找到一个渐近正确的公式来计算一个数的哥德巴赫分解数量将会非常困难，因为划线的第二个起始点总是在变化。根据我们的假设，我们将只考虑 $P_{p_n}(x)$ 作为关于 $x$ 的函数，并对该函数进行一些思考。\\\\
+\indent Wir führen die Bezeichnung $P(x)$ ein, wo\\
+\indent 我们引入记号$P(x)$，其中
+$$
+P_{p_n}(x)=P(x)
+$$
+wenn $p_n$ die grösste Primzahl unter $\sqrt x$ bedeutet. Wir betrachten die Zahlenmengen $0$ bis $x$ und $0$ bis $x+\triangle x$. In diesen beiden streichen wir jede zweite Zahl und zweimal jede dritte, jede fünfte bis jede p1te Zahl. Die Anzahl der zurückstehenden Zahlen ist dann respektive\\
+如果$p_n$代表小于$\sqrt x$的最大质数。我们考虑数字集合从0到x和从0到$x+\triangle x$。在这两个集合中, 我们划掉每隔一位的数字, 以及每隔三位划掉两次, 每隔五位直到每隔p1位的数字。剩下的数字数量分别是
+$$
+P_{p_n}(x)=K_nx
+$$
+und\\
+和
+$$
+P_{p_n}(x+\triangle x)=K_n(x+\triangle x)
+$$
+\indent In der zweiten Zahlenmenge haben wir weiter jede $p_{n+1}$te, jede $p_{n+2}$te bis jede $p_{n+m}$te Zahl zweimal zu streichen.\\
+\indent 在第二组数字中，我们要继续删除每个$p_{n+1},p_{n+2}$直到$p_{n+m}$的数两次。\\\\
+\indent Hier bedeutet $p_{n+m}$ die grösste Primzahl unter $\sqrt{x+\triangle x}$. Von diesen sind jedoch früher mehrere gestrichen. Setzen wir $\triangle x$ im Verhältnis zu $x$ sehr klein voraus, können wir annäherungsweise\\
+\indent 在这里，$p_{n+m}$表示$\sqrt{x+\triangle x}$下最大的质数。然而，其中有几个被提前划掉了。假设$\triangle x$相对于$x$非常小，我们可以近似地设置它
+$$
+p_{n+1}=p_{n+2}=p_{n+3}=...=p_{n+m}=\sqrt{x}
+$$
+die Anzahl von neu gestrichenen ist dann annäherungsweise\\
+新涂漆的数量大约是
+$$
+2mP_{p_n}(\frac{x}{p_{n+1}})=2mK_n\frac{x}{p_{n+1}}=2mK_n\sqrt{x}
+$$
+\indent Die Anzahl der zurückstehenden Zahlen wird dann\\
+\indent 根据未完成的数字数量来确定
+$$
+P(x+\triangle x)=K_n(x+\triangle x)-2mK_n\sqrt{x}
+$$
+\indent Da nun\\
+\indent 根据已知
+$$
+P(x)=K_nx
+$$
+ist, erhalten wir\\
+得到
+$$
+P(x+\triangle x)=\frac{P(x)}{x}(x+\triangle x)-2m\frac{P(x)}{x}\sqrt{x}
+$$
+oder:\\
+以及:
+\begin{align}
+\frac{P(x+\triangle x)-P(x)}{P(x)}=\frac{\triangle x}{x}-\frac{2m}{\sqrt{x}}\tag{\RN{5}}
+\end{align}
+Hier bedeutet $m$ die Anzahl von Primzahlen zwischen $\sqrt{x}$ und $\sqrt{x+\triangle x}$.Bezeichnen wir mit $\pi(x)$ die Anzahl von Primzahlen unter $x$, wird\\
+这里的$m$表示在$\sqrt{x}$和$\sqrt{x+\triangle x}$之间的质数数量。如果我们用$\pi(x)$表示小于$x$的质数数量，那么
+$$
+m=\pi(\sqrt{x+\triangle x})-\pi(\sqrt{x})
+$$
+Wenn wir Grössen von der Ordnung $\triangle^2x$ vernachlässigen, können wir auch schreiben\\
+如果我们忽略$\triangle^2x$的数量级，我们也可以写成
+$$
+m=(\sqrt{x+\triangle x}-\sqrt{x})\pi^{\prime}(\sqrt{x})=\frac{1}{2}\frac{\triangle x}{\sqrt{x}}\pi^{\prime}(\sqrt{x})
+$$
+Hieraus folgt\\
+由此可见
+\end{document}

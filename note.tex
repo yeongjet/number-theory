@@ -1,0 +1,73 @@
+\documentclass[UTF8,a4paper,zihao=-4]{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{fontsize}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{amssymb}
+\xeCJKsetup{CJKmath=true}
+\newcommand\funderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0.4pt}%
+   }%
+   \ULon}
+\newcommand\sunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\tunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0pt}}}%
+     \llap{{\rule[-4.4ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\fsunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0.4pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\ftunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0.4pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0pt}}}%
+     \llap{{\rule[-4.4ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\stunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0.4pt}}}%
+     \llap{{\rule[-4.4ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\newcommand\fstunderline{\bgroup\markoverwith
+   {%
+     \rule[-1ex]{2pt}{0.4pt}%
+     \llap{{\rule[-2.7ex]{2pt}{0.4pt}}}%
+     \llap{{\rule[-4.4ex]{2pt}{0.4pt}}}%
+   }%
+   \ULon}
+\title{筛法}
+\begin{document}
+\author{YeongJet.Tang}
+\date{}
+\maketitle
+筛法是用于求不超过某个自然数的全部质数的方法, 最古老的筛法是由古希腊的埃拉托斯特尼(Eratosthenes)发明的，又称埃拉托斯特尼筛法。该筛法简要描述如下: 要得到自然数n以内的全部质数, 把不大于根号n的所有素数的倍数剔除, 剩下的就是$\sqrt{x}$和$x$之间的质数。例如, 我们要筛选出30以内的质数\\
+质数的定义是该数的因数只有1和它本身，例如3的因数是1和3(它本身), 那么，如何求小于某个正整数的全部质数? 假设我们要筛选出30以内的全部质数，该怎么做呢？
+首先向大家说一个事实，假设我们有某个质数$p$，那么把大于$p$并且小于$p^2$的数删去，
+我们把30以内的自然数列出来: 0,1,2,3,...,28,29,30
+2是最小的质数，把凡是是2的倍数的数(2,4,6,8,...,28,30)删去，为了后续方便向大家说明，我们在这些数字下面划了一条横线表示该数是2的倍数, 并且在最有端用2表示该数是2的倍数这样留下来的第一个数必定是素数，因为除了1以外，它不能被小于它的数整除，也不能
+我们注意到，某些数下面不止一条横线，说明该数被删了多次，例如6能同时被2和3删去，所以有两条横线，横线所在行最左边，我们用质数2，3，5表示该行画横线的
+第一行的横线表示该横线上的数能被2删去，第二行的横线表示该横线上的数能被3删去，如此类推
+\begin{align*}
+  \sigma
+    &\underset{5}{\underset{3}{\underset{2}{\ }}}\hspace{0.1em}\fstunderline{\ 0\ }\hspace{0.9em}{\ 1\ }\hspace{0.9em}\funderline{\ 2\ }\hspace{0.8em}\sunderline{\ 3\ }\hspace{0.8em}\funderline{\ 4\ }\hspace{0.8em}\tunderline{\ 5\ }\hspace{0.8em}\fsunderline{\ 6\ }\hspace{0.8em}{\ 7\ }\hspace{0.8em}\funderline{\ 8\ }\hspace{0.8em}\sunderline{\ 9\ }\quad\ftunderline{10}\quad11\quad\fsunderline{12}\quad13\quad\funderline{14}\quad\stunderline{15}\\\\
+    &\underset{5}{\underset{3}{\underset{2}{\ }}}\hspace{0.2em}\funderline{16}\quad17\quad\fsunderline{18}\quad19\quad\ftunderline{20}\quad\sunderline{21}\quad\funderline{22}\quad23\quad\fsunderline{24}\quad\tunderline{25}\quad\funderline{26}\quad\sunderline{27}\quad\funderline{28}\quad29\quad\fstunderline{30}
+\end{align*}
+\end{document}
